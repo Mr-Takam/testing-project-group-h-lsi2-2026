@@ -1,3 +1,4 @@
+
 ---
 
 **name:** Vulnérabilité CSRF sur suppression d’équipe
