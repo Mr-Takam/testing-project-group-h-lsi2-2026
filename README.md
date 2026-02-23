@@ -27,4 +27,3 @@ Conformément aux directives :
 2. **Bug Tracker :** [Consulter les GitHub Issues de ce repo](./.github/issues)
 
 
----

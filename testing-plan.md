@@ -1,7 +1,3 @@
-### 2. Le fichier `TEST_PLAN.md`
-
-C'est ici que vous prouvez que vous n'avez pas juste cliqué au hasard, mais que vous avez une vraie stratégie (notamment grâce à l'analyse "Grey Box" du code source que l'on a faite).
-
 # Plan de Test Exploratoire - HR DB
 
 ## 1. Stratégie de Test
