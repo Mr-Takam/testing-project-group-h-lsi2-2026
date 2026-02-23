@@ -62,7 +62,7 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 | **FUN-02** | Doublon d'équipe | Créer une équipe "Dev", puis une autre équipe "Dev". | Rejet ou gestion des doublons pour éviter la confusion métier. |
 | **FUN-03** | Suppression avec dépendances | Tenter de supprimer une équipe qui contient déjà des membres. | Le système doit empêcher la suppression ou avertir l'utilisateur, et non créer des employés "orphelins". |
 |**FUN-04**| Equipe sans employé| essayer de creer une équipe vide | erreur lors de la création |
-|**FUN-04**| Equipe sans manager| essayer d'ajouter une équipe sans manager | erreur lors de la création|
+|**FUN-05**| Equipe sans manager| essayer d'ajouter une équipe sans manager | erreur lors de la création|
 
 ### 🔵 Validation & Limites (Boundary & Validation)
 | ID | Titre du test | Action / Donnée de test | Résultat Attendu |
