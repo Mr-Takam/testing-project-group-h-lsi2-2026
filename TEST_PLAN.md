@@ -56,6 +56,17 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 | **SEC-03** | Absence de token CSRF (Création) | Inspecter le formulaire `/add_team`. | Un token `csrfmiddlewaretoken` doit être présent, comme c'est le cas sur `/reset_db`. |
 
 ### 🟡 Logique Métier (Functional)
+## 🔗 Navigation
+
+| ID | Description | Étapes | Résultat attendu | Résultat obtenu | Statut |
+|----|-------------|--------|------------------|-----------------|--------|
+| TC-01 | Accès à la page d'accueil | Ouvrir l'URL de l'application | Page HR DB - Home s'affiche avec liens Employees, Teams, Danger zone | | ⬜ |
+| TC-02 | Lien "List employees" | Cliquer sur "List employees" | La liste des employés s'affiche | | ⬜ |
+| TC-03 | Lien "Add new employee" | Cliquer sur "Add new employee" | Un formulaire d'ajout d'employé s'affiche | | ⬜ |
+| TC-04 | Lien "List teams" | Cliquer sur "List teams" | La liste des équipes s'affiche | | ⬜ |
+| TC-05 | Lien "Create new team" | Cliquer sur "Create new team" | Un formulaire de création d'équipe s'affiche | | ⬜ |
+| TC-06 | Lien "Home" | Cliquer sur "Home" depuis n'importe quelle page | Retour à la page d'accueil | | ⬜ |
+
 | ID | Titre du test | Action / Donnée de test | Résultat Attendu |
 | :--- | :--- | :--- | :--- |
 | **FUN-01** | Doublon d'adresse email | Créer l'employé A avec `test@groupeh.com`, puis l'employé B avec `test@groupeh.com`. | Rejet du 2ème formulaire avec un message d'erreur clair (l'email doit être unique). |
