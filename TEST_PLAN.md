@@ -66,6 +66,39 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 | TC-04 | Lien "List teams" | Cliquer sur "List teams" | La liste des équipes s'affiche | | ⬜ |
 | TC-05 | Lien "Create new team" | Cliquer sur "Create new team" | Un formulaire de création d'équipe s'affiche | | ⬜ |
 | TC-06 | Lien "Home" | Cliquer sur "Home" depuis n'importe quelle page | Retour à la page d'accueil | | ⬜ |
+---
+
+## 👤 Ajout d'un Employé
+
+| ID | Description | Étapes | Résultat attendu | Résultat obtenu | Statut |
+|----|-------------|--------|------------------|-----------------|--------|
+| TC-07 | Ajout d'un employé valide | Remplir tous les champs requis avec des données valides, soumettre | L'employé est créé et apparaît dans la liste | | ⬜ |
+| TC-08 | Champs obligatoires vides | Soumettre le formulaire sans remplir aucun champ | Message d'erreur indiquant les champs requis | | ⬜ |
+| TC-09 | Nom avec caractères spéciaux | Saisir `< > & " '` dans le champ nom | L'application gère correctement (erreur ou affichage sécurisé) | | ⬜ |
+| TC-10 | Nom très long (>255 caractères) | Saisir un texte très long dans le champ nom | Message d'erreur ou troncature gérée | | ⬜ |
+| TC-11 | Champ email invalide | Saisir `notanemail` dans le champ email | Message d'erreur de format | | ⬜ |
+| TC-12 | Doublon d'employé | Ajouter deux fois le même employé | Erreur ou avertissement de doublon | | ⬜ |
+
+---
+
+## 📋 Liste des Employés
+
+| ID | Description | Étapes | Résultat attendu | Résultat obtenu | Statut |
+|----|-------------|--------|------------------|-----------------|--------|
+| TC-13 | Affichage liste vide | Réinitialiser la base, accéder à la liste | Message "aucun employé" ou liste vide affichée proprement | | ⬜ |
+| TC-14 | Affichage liste avec données | Ajouter des employés, accéder à la liste | Tous les employés ajoutés apparaissent | | ⬜ |
+| TC-15 | Tri / Filtre (si disponible) | Chercher ou trier les employés | Les résultats sont corrects | | ⬜ |
+
+---
+
+## 👥 Équipes
+
+| ID | Description | Étapes | Résultat attendu | Résultat obtenu | Statut |
+|----|-------------|--------|------------------|-----------------|--------|
+| TC-16 | Création d'une équipe valide | Remplir le nom de l'équipe, soumettre | L'équipe est créée et apparaît dans la liste | | ⬜ |
+| TC-17 | Création équipe sans nom | Soumettre le formulaire de création vide | Message d'erreur champ requis | | ⬜ |
+| TC-18 | Doublon d'équipe | Créer deux équipes avec le même nom | Erreur ou avertissement | | ⬜ |
+| TC-19 | Assigner un employé à une équipe | Créer une équipe, y ajouter un employé | L'employé apparaît dans l'équipe | | ⬜ |
 
 | ID | Titre du test | Action / Donnée de test | Résultat Attendu |
 | :--- | :--- | :--- | :--- |
