@@ -98,7 +98,8 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 | TC-17 | Création équipe sans nom | Soumettre le formulaire de création vide | Message d'erreur champ requis | | ✅ |
 | TC-18 | Doublon d'équipe | Créer deux équipes avec le même nom | Erreur ou avertissement | | ⬜ |
 | TC-19 | Assigner un employé à une équipe | Créer une équipe, y ajouter un employé | L'employé apparaît dans l'équipe | | ✅ |
-
+| TC-20 | Suppression équipe vide | Créer une équipe sans membre, puis cliquer sur "Delete" | L'équipe est supprimée sans erreur |  | ⬜ |
+| TC-21 | Suppression équipe avec membres | Assigner un employé à une équipe, tenter de supprimer l'équipe | Le système doit soit empêcher la suppression, soit demander confirmation (gestion de l'erreur) |  
 
 ### 🔵 Validation & Limites (Boundary & Validation)
 | ID | Titre du test | Action / Donnée de test | Résultat Attendu |
