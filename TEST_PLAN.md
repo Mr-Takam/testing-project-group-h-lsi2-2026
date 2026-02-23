@@ -62,7 +62,7 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 |----|-------------|--------|------------------|-----------------|--------|
 | TC-01 | Accès à la page d'accueil | Ouvrir l'URL de l'application | Page HR DB - Home s'affiche avec liens Employees, Teams, Danger zone | | ⬜ |
 | TC-02 | Lien "List employees" | Cliquer sur "List employees" | La liste des employés s'affiche | | ⬜ |
-| TC-03 | Lien "Add new employee" | Cliquer sur "Add new employee" | Un formulaire d'ajout d'employé s'affiche | | ⬜ |
+| TC-03 | Lien "Add new employee" | Cliquer sur "Add new employee" | Un formulaire d'ajout d'employé s'affiche | T out les s'afffiche mais on a une ligne en trop pour adresse | ✅ |
 | TC-04 | Lien "List teams" | Cliquer sur "List teams" | La liste des équipes s'affiche | | ⬜ |
 | TC-05 | Lien "Create new team" | Cliquer sur "Create new team" | Un formulaire de création d'équipe s'affiche | | ⬜ |
 | TC-06 | Lien "Home" | Cliquer sur "Home" depuis n'importe quelle page | Retour à la page d'accueil | | ⬜ |
