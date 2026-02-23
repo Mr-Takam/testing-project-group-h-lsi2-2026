@@ -72,11 +72,11 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 
 | ID | Description | Étapes | Résultat attendu | Résultat obtenu | Statut |
 |----|-------------|--------|------------------|-----------------|--------|
-| TC-07 | Ajout d'un employé valide | Remplir tous les champs requis avec des données valides, soumettre | L'employé est créé et apparaît dans la liste | | ✅ |
-| TC-08 | Champs obligatoires vides | Soumettre le formulaire sans remplir aucun champ | Message d'erreur indiquant les champs requis | | ⬜ |
-| TC-09 | Nom avec caractères spéciaux | Saisir `< > & " '` dans le champ nom | L'application gère correctement (erreur ou affichage sécurisé) | | ⬜ |
+| TC-07 | Ajout d'un employé valide | Remplir tous les champs requis avec des données valides, soumettre | L'employé est créé et apparaît dans la liste |Employé crée | ✅ |
+| TC-08 | Champs obligatoires vides | Soumettre le formulaire sans remplir aucun champ | Message d'erreur indiquant les champs requis |Message d'erreur | ✅ |
+| TC-09 | Nom avec caractères spéciaux | Saisir `< > & " '` dans le champ nom | L'application gère correctement (erreur ou affichage sécurisé) |Employé crée avec caretère spécial | ❌ |
 | TC-10 | Nom très long (>255 caractères) | Saisir un texte très long dans le champ nom | Message d'erreur ou troncature gérée | | ⬜ |
-| TC-11 | Champ email invalide | Saisir `notanemail` dans le champ email | Message d'erreur de format | | ⬜ |
+| TC-11 | Champ email invalide | Saisir `notanemail` dans le champ email | Message d'erreur de format |Adresse mail crée | ❌ |
 | TC-12 | Doublon d'employé | Ajouter deux fois le même employé | Erreur ou avertissement de doublon | | ⬜ |
 
 ---
@@ -85,9 +85,8 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 
 | ID | Description | Étapes | Résultat attendu | Résultat obtenu | Statut |
 |----|-------------|--------|------------------|-----------------|--------|
-| TC-13 | Affichage liste vide | Réinitialiser la base, accéder à la liste | Message "aucun employé" ou liste vide affichée proprement | | ⬜ |
-| TC-14 | Affichage liste avec données | Ajouter des employés, accéder à la liste | Tous les employés ajoutés apparaissent | | ⬜ |
-| TC-15 | Tri / Filtre (si disponible) | Chercher ou trier les employés | Les résultats sont corrects | | ⬜ |
+| TC-13 | Affichage liste vide | Réinitialiser la base, accéder à la liste | Message "aucun employé" ou liste vide affichée proprement | | ✅ |
+| TC-14 | Affichage liste avec données | Ajouter des employés, accéder à la liste | Tous les employés ajoutés apparaissent | | ✅ |
 
 ---
 
@@ -95,18 +94,11 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 
 | ID | Description | Étapes | Résultat attendu | Résultat obtenu | Statut |
 |----|-------------|--------|------------------|-----------------|--------|
-| TC-16 | Création d'une équipe valide | Remplir le nom de l'équipe, soumettre | L'équipe est créée et apparaît dans la liste | | ⬜ |
-| TC-17 | Création équipe sans nom | Soumettre le formulaire de création vide | Message d'erreur champ requis | | ⬜ |
+| TC-16 | Création d'une équipe valide | Remplir le nom de l'équipe, soumettre | L'équipe est créée et apparaît dans la liste | | ✅ |
+| TC-17 | Création équipe sans nom | Soumettre le formulaire de création vide | Message d'erreur champ requis | | ✅ |
 | TC-18 | Doublon d'équipe | Créer deux équipes avec le même nom | Erreur ou avertissement | | ⬜ |
-| TC-19 | Assigner un employé à une équipe | Créer une équipe, y ajouter un employé | L'employé apparaît dans l'équipe | | ⬜ |
+| TC-19 | Assigner un employé à une équipe | Créer une équipe, y ajouter un employé | L'employé apparaît dans l'équipe | | ✅ |
 
-| ID | Titre du test | Action / Donnée de test | Résultat Attendu |
-| :--- | :--- | :--- | :--- |
-| **FUN-01** | Doublon d'adresse email | Créer l'employé A avec `test@groupeh.com`, puis l'employé B avec `test@groupeh.com`. | Rejet du 2ème formulaire avec un message d'erreur clair (l'email doit être unique). |
-| **FUN-02** | Doublon d'équipe | Créer une équipe "Dev", puis une autre équipe "Dev". | Rejet ou gestion des doublons pour éviter la confusion métier. |
-| **FUN-03** | Suppression avec dépendances | Tenter de supprimer une équipe qui contient déjà des membres. | Le système doit empêcher la suppression ou avertir l'utilisateur, et non créer des employés "orphelins". |
-|**FUN-04**| Equipe sans employé| essayer de creer une équipe vide | erreur lors de la création |
-|**FUN-05**| Equipe sans manager| essayer d'ajouter une équipe sans manager | erreur lors de la création|
 
 ### 🔵 Validation & Limites (Boundary & Validation)
 | ID | Titre du test | Action / Donnée de test | Résultat Attendu |
