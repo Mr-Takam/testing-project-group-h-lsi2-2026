@@ -72,7 +72,7 @@ Notre approche repose sur du **test manuel exploratoire** complété par une ana
 
 | ID | Description | Étapes | Résultat attendu | Résultat obtenu | Statut |
 |----|-------------|--------|------------------|-----------------|--------|
-| TC-07 | Ajout d'un employé valide | Remplir tous les champs requis avec des données valides, soumettre | L'employé est créé et apparaît dans la liste | | ⬜ |
+| TC-07 | Ajout d'un employé valide | Remplir tous les champs requis avec des données valides, soumettre | L'employé est créé et apparaît dans la liste | | ✅ |
 | TC-08 | Champs obligatoires vides | Soumettre le formulaire sans remplir aucun champ | Message d'erreur indiquant les champs requis | | ⬜ |
 | TC-09 | Nom avec caractères spéciaux | Saisir `< > & " '` dans le champ nom | L'application gère correctement (erreur ou affichage sécurisé) | | ⬜ |
 | TC-10 | Nom très long (>255 caractères) | Saisir un texte très long dans le champ nom | Message d'erreur ou troncature gérée | | ⬜ |
