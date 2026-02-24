@@ -1,24 +1,27 @@
+from models.employee_page import EmployeePage
+
 def test_should_sanitize_special_characters_in_name(page):
     """
     Test pour TC-09 : Le système doit protéger contre les caractères spéciaux dans le nom.
+    Vérifie si le nom est accepté et affiché sans nettoyage (sanitization).
     """
+    # --- ARRANGE ---
+    emp_page = EmployeePage(page)
     special_name = "O'Connor <script>"
     
-    page.goto("/add_employee")
-    page.get_by_role("textbox", name="Name").fill(special_name)
-    page.get_by_role("textbox", name="Email").fill("xss@test.com")
-    page.locator("#id_address_line1").fill("123 Street")
-    page.get_by_role("textbox", name="City").fill("Paris")
-    page.get_by_role("spinbutton", name="Zip code").fill("75000")
-    page.get_by_role("textbox", name="Hiring date").fill("2025-01-01")
-    page.get_by_role("textbox", name="Job title").fill("Security Tester")
+    # --- ACT ---
+    # On utilise la méthode du Page Object pour créer l'employé
+    emp_page.create_employee(name=special_name, email="xss@test.com")
     
-    page.get_by_role("button", name="Add").click()
+    # --- ASSERT ---
+    emp_page.navigate_to_list()
     
-    # On va vérifier comment c'est affiché dans la liste
-    page.goto("/employees")
+    # On vérifie si le nom "dangereux" est visible tel quel dans la liste.
+    # Si is_employee_visible renvoie True, cela signifie que le script n'a pas été filtré.
+    is_visible_raw = emp_page.is_employee_visible(special_name)
     
-    # On vérifie si le nom avec les caractères spéciaux est présent tel quel
-    # Si le bug existe, le texte brut est affiché sans filtrage.
-    name_cell_visible = page.get_by_role("cell", name=special_name, exact=True).is_visible()
-    assert not name_cell_visible, "BUG TC-09 : Le nom avec caractères spéciaux/scripts est accepté et affiché sans filtrage !"
+    # L'assertion échouera si is_visible_raw est True, prouvant l'existence du bug TC-09.
+    assert not is_visible_raw, (
+        f"BUG TC-09 : Le nom '{special_name}' est affiché sans filtrage. "
+        "Le système devrait encoder ou refuser les caractères spéciaux."
+    )

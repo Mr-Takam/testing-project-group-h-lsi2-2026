@@ -1,17 +1,33 @@
+from models.team_page import TeamPage
+
 def test_should_fail_to_delete_team_via_direct_url_get(page):
-    # 1. Créer une équipe
-    page.goto("/add_team")
-    page.locator('input[name="name"]').fill("Target Team")
-    page.click("text='Add'")
+    """
+    Test pour SEC-01 : La suppression ne doit pas fonctionner via une URL directe (GET).
+    On vérifie que le serveur rejette la requête ou que l'équipe n'est pas supprimée.
+    """
+    # --- ARRANGE (Préparation) ---
+    team_page = TeamPage(page)
+    team_name = "Target Team"
     
-    # 2. Récupérer l'URL de suppression
-    page.goto("/teams")
-    delete_link = page.locator("tr", has_text="Target Team").get_by_role("link", name="Delete")
-    href = delete_link.get_attribute("href")
+    # On crée l'équipe normalement
+    team_page.create_team(team_name)
     
-    # 3. Tenter la suppression et vérifier la réponse du serveur
+    # On récupère l'URL de suppression directe via le Page Object
+    href = team_page.get_direct_delete_url(team_name)
+
+    # --- ACT (Action) ---
+    # On tente d'accéder directement à l'URL (requête GET)
     response = page.goto(href)
+
+    # --- ASSERT (Vérification) ---
+    # 1. Vérification technique : le serveur ne devrait pas répondre 200 (OK) pour un GET destructif
+    assert response.status != 200, (
+        f"BUG SEC-01 : Le serveur accepte la suppression de '{team_name}' via GET (Status 200)."
+    )
     
-    # Si le bug SEC-01 est là, le serveur répond 200 (OK) et supprime.
-    # On veut que ça échoue si le statut est un succès.
-    assert response.status != 200, "BUG SEC-01 : Le serveur accepte la suppression via GET (Status 200)"
+    # 2. Vérification fonctionnelle : l'équipe doit toujours être présente dans la liste
+    team_page.navigate_to_list()
+    is_still_there = team_page.is_team_visible(team_name)
+    assert is_still_there, (
+        f"BUG SEC-01 : L'équipe '{team_name}' a été supprimée via une simple requête GET !"
+    )
