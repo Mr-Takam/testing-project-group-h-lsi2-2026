@@ -35,11 +35,10 @@ def test_team_deletion_should_not_delete_employees(page: Page):
     
     # 4. Supprimer l'équipe (Processus en 2 étapes)
     page.goto("/teams")
-    # Étape A : Cliquer sur le lien Delete dans le tableau
+    ## Étape A : Cliquer sur le lien Delete dans le tableau
     page.locator("tr", has_text="Team Alpha").get_by_role("link", name="Delete").click()
     
-    # Étape B : Cliquer sur le bouton "Proceed" sur la page de confirmation
-    # Note : C'est ici que l'Erreur 500 risque de se produire si le bug est présent
+    ## Étape B : Cliquer sur le bouton "Proceed" sur la page de confirmation
     page.get_by_role("button", name="Proceed").click()
     
     # 5. VÉRIFICATION DU BUG
@@ -47,5 +46,6 @@ def test_team_deletion_should_not_delete_employees(page: Page):
     page.goto("/employees")
     
     # L'assertion échouera si l'employé a disparu, confirmant le bug TC-21
-    expect(page.get_by_role("cell", name="Survivor", exact=True)).to_be_visible(), \
-        "BUG TC-21 : L'employé a été supprimé en cascade avec son équipe !"
+    page.wait_for_selector("text=Survivor") 
+    assert page.get_by_role("cell", name="Survivor", exact=True).is_visible(), \
+        "BUG TC-21 : L'employé a été supprimé en cascade !"
