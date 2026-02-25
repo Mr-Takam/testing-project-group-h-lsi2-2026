@@ -1,3 +1,5 @@
+from playwright.sync_api import Page, expect
+
 def test_create_team(page):
     # Plus besoin de page.goto("/reset_db"), c'est automatique !
     page.goto("/add_team")

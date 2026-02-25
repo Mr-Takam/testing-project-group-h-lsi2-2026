@@ -16,5 +16,5 @@ def test_add_employee(page: Page):
     page.get_by_role("button", name="Add").click()
 
     # Vérifications
-    expect(page).to_have_url(re.compile(r".*/employees"))
-    expect(page.get_by_role("cell", name="Tony", exact=True)).to_be_visible()
+    assert "/employees" in page.url
+    assert page.get_by_role("cell", name="Tony", exact=True).is_visible()
