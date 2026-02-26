@@ -1,0 +1,29 @@
+[tool.isort]
+profile = "black"
+
+
+[project]
+name = 'hr-db'
+requires-python = ">= 3.13"
+
+
+dependencies = [
+    "dj-database-url",
+    "django (>=6, <7)",
+    "django-bootstrap5",
+    "django-browser-reload",
+    "django-cors-headers",
+    "psycopg2-binary",
+    "python-dotenv",
+    "typing-extensions",
+    "gunicorn (>=23.0.0,<24.0.0)",
+]
+
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.14.8"
+djlint = "^1.36.4"
+ipdb = "^0.13.13"

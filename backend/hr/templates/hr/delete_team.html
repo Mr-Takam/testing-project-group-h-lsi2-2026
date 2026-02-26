@@ -1,0 +1,13 @@
+{% extends "hr/base.html" %}
+{% block title %}
+  Delete Team
+{% endblock title %}
+{% block content %}
+  <h2>Delete Team</h2>
+  <p>You are about to delete the team "{{ team.name }}"</p>
+  <p>This cannot be undone</p>
+  <form method="post" action="{% url "hr:delete_team" team.id %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Proceed</button>
+  </form>
+{% endblock content %}
