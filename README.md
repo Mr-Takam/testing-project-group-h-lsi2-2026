@@ -1,4 +1,4 @@
-# Project Session 1 - Exploratory Testing & Bug Tracking
+# Project Session 2 - Exploratory Testing & Bug Tracking
 Projet de test logiciel et bug tracking - Groupe H - LSI2 2026
 
 **LSI2 (Promo 2026) - Groupe H**
